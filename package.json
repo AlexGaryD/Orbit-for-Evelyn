@@ -1,0 +1,8 @@
+{
+  "name": "proyecto-evelyn",
+  "version": "1.0.0",
+  "description": "Portal de cumpleaños para Evelyn",
+  "scripts": {
+    "build": "echo 'Proyecto estático listo'"
+  }
+}
