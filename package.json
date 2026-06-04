@@ -1,8 +1,14 @@
 {
-  "name": "proyecto-evelyn",
+  "name": "orbit-for-evelyn",
   "version": "1.0.0",
-  "description": "Portal de cumpleaños para Evelyn",
+  "description": "Un sitio especial para Evelyn Manzanita Navas",
+  "private": true,
   "scripts": {
-    "build": "echo 'Proyecto estático listo'"
+    "dev": "npx serve .",
+    "build": "mkdir -p public && cp index.html public/ && cp -r assets recuerdos public/ && cp Cumple.mpeg public/",
+    "start": "npx serve ."
+  },
+  "devDependencies": {
+    "serve": "^14.2.6"
   }
 }
