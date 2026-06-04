@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "npx serve .",
+    "build": "mkdir -p public && cp -r index.html styles.css script.js images videos public/",
     "start": "npx serve ."
   },
   "devDependencies": {
