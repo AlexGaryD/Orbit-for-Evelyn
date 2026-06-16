@@ -1,0 +1,26 @@
+name: Auto-merge v0 PRs to Main
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize, ready_for_review]
+    branches:
+      - Main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    # Solo se ejecuta para PRs que vienen de ramas v0/*
+    if: startsWith(github.event.pull_request.head.ref, 'v0/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merge PR automaticamente
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          echo "Fusionando PR #$PR_NUMBER de una rama v0/* hacia Main..."
+          gh pr merge "$PR_NUMBER" --repo "$REPO" --merge --delete-branch=false
